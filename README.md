@@ -1,11 +1,11 @@
 python-dpda
 ===========
 
-Python Deterministic Push Down Automaton
+Python Deterministic Push Down Automaton<br>
 
-This module allows a user to:
-    - Create a PDA object with a designated start state
-    - Create multiple State objects, of the types:
+This module allows a user to:<br>
+    - Create a PDA object with a designated start state<br>
+    - Create multiple State objects, of the types:<br>
         - Read states<br>
         - Push states<br>
         - Pop states<br> 
