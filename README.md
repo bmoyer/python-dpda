@@ -6,7 +6,7 @@ Python Deterministic Push Down Automaton
 This module allows a user to:
     - Create a PDA object with a designated start state
     - Create multiple State objects, of the types:
-        - Read states 
+        - Read states<br>
         - Push states 
         - Pop states 
         - Accept states 
