@@ -3,16 +3,12 @@ Python Deterministic Pushdown Automaton
 
 Python Deterministic Push Down Automaton<br>
 
-This module allows a user to:<br>
-    * Create a PDA object with a designated start state<br>
-    * Create multiple State objects, of the types:<br>
-     * Read states<br>
-     * Push states<br>
-     * Pop states<br> 
-     * Accept states<br>
-     * Implicit Reject states<br>
+This module has the following features:<br>
+    * Creation of a PDA object with a designated start state<br>
+    * Creation of multiple State objects, of the types: START, READ, PUSH, POP, ACCEPT<br>
+    * Implicit rejection states; if a tape does not terminate in an ACCEPT state, it implicitly terminates in a REJECT state.
     * Add transitions to each state, which determine the behavior of the automaton<br>
-    * Start a PDA by feeding it a tape (list or string)<br> 
+    * Start a PDA by feeding it a tape (string) and a stack (list).<br> 
     * Print verbose output as the PDA proceeds through the input material.
 <br>
 The code in this README will assemble and test the following pushdown automaton.  We use '!' for the END symbol on both the tape and the stack.
@@ -77,6 +73,7 @@ When running "my_tape" from the previous example, the following output is return
 Now, let's try giving the PDA a word that isn't in this language:
 
 
+    # 42 'a' followed by only 21 'b'... this is not in our language!
     some_word = "a"*42 + "b"*21
     some_tape = some_word + "!"
     some_stack = ['!']
