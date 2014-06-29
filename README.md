@@ -24,12 +24,14 @@ Creating a PDA and States:
     from PDA import *
     from State import *
      
-    # Create each state, give start_state the first processing state of the PDA .
+    # Create each state.
     accept5 = State(state_type="Accept")
     pop4 = State(state_type="Pop")
     pop3 = State(state_type="Pop")
     push2 = State(state_type="Push")
     read1 = State(state_type="Read")
+
+    # When creating the 'start state', you must give the first 'processing' state of the PDA as the next_state argument.
     start_state = State(state_type="Start", next_state=read1)
 
 
