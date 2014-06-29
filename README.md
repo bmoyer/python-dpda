@@ -6,7 +6,7 @@ Python Deterministic Push Down Automaton<br>
 This module allows a user to:<br>
     * Create a PDA object with a designated start state<br>
     * Create multiple State objects, of the types:<br>
-     * Read states
+     * Read states<br>
      * Push states<br>
      * Pop states<br> 
      * Accept states<br>
@@ -36,6 +36,10 @@ Creating a PDA and States:
 
 
     # Adding transitions to each state we've created.
+    # READ states are given a character to read from the tape, and the next state they will go to if that character is read.
+    # PUSH states are given a character to push to the stack, and the next state to go to after that.
+    # POP states are given a character and a next state, and if they encounter that character when popping from the stack, the PDA proceeds to the next state.
+    # ACCEPT states are not given any transitions; they are the endpoints of the PDA.
     read1.add_transition(push2, character="a")
     read1.add_transition(pop3, character="b")
     read1.add_transition(pop4, character="!")
