@@ -13,6 +13,7 @@ This module allows a user to:<br>
      * Implicit Reject states<br>
     * Add transitions to each state, which determine the behavior of the automaton<br>
     * Start a PDA by feeding it a tape (list or string)<br> 
+    * Print verbose output as the PDA proceeds through the input material.
 <br>
 The code in this README will assemble and test the following pushdown automaton.  We use '!' for the END symbol on both the tape and the stack.
 
@@ -66,4 +67,22 @@ Running a tape through the PDA to check language membership:
 
 Output
 ==========
-The PDA will print whether the tape was accepted or rejected.  If the PDA constructor is given the parameter verbose=True, then the states will report via STDOUT whenever they perform any action.  Verbose mode is suggested for students trying to solidify their understanding of pushdown automata.
+The PDA will print whether the tape was accepted or rejected.  If the PDA constructor is given the parameter verbose=True, then the states will report via STDOUT whenever they perform any action.  Verbose mode is suggested for anyone trying to solidify their understanding of pushdown automata.
+
+When running "my_tape" from the previous example, the following output is returned:
+
+
+    Tape accepted!
+
+Now, let's try giving the PDA a word that isn't in this language:
+
+
+    some_word = "a"*42 + "b"*21
+    some_tape = some_word + "!"
+    some_stack = ['!']
+    my_pda.start(tape=some_tape, stack=some_stack)
+
+Output:
+
+
+    Tape NOT accepted!
