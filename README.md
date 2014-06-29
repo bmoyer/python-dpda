@@ -16,7 +16,7 @@ This module allows a user to:<br>
 <br>
 If the python-dpda crashes, it means that the tape word was not in the language expressed by your pushdown automaton.  This program is built to resemble a theoretical PDA, which is quite capable of crashing!
 
-![alt tag](http://i.imgur.com/43bvWTp.png)
+![alt tag](http://i.imgur.com/81mi5x1.png )
 
 Creating a PDA and States:
     
