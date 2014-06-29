@@ -23,31 +23,34 @@ class State(object):
                     return transition['next']
 
         if self.state_type == "Push":
-            return self.next_state
+            return self.transitions[0]['next']
                   
         if self.state_type == "Pop":
             for transition in self.transitions:
                 if transition['char'] == character:
                     return transition['next']
                 
-    def action(self, tape, stack, char=None):
+    def action(self, tape, stack):
+         """print (self.state_type, )
+         print("SAW ",tape[0])
+         print("stack was ",stack)"""
          if self.state_type == "Start":
             self.get_next_state().action(tape, stack)
          elif self.state_type == "Read":
-             if not tape:
-                 next_state = self.get_next_state(character="").action(tape[1:], stack)
-             else:
-                 next_state = self.get_next_state(character=tape[0]).action(tape[1:], stack)
+             print("READ STATE, TAPE WAS ",tape)
+             self.get_next_state(character=tape[0]).action(tape[1:], stack)
          elif self.state_type == "Push":
+             print("stack was" ,stack)
+             char = self.transitions[0]['char']
+             print("pushed", char)
              stack.append(char)
              self.get_next_state().action(tape, stack)
          elif self.state_type == "Pop":
-             if not stack:
-                self.get_next_state(character="").action(tape,stack)
-             else:
-                 char = stack.pop()
-                 self.get_next_state(character=char).action(tape,stack)
+             print("stack was" ,stack)
+             char = stack.pop()
+             print("popped", char)
+             self.get_next_state(character=char).action(tape,stack)
          elif self.state_type == "Accept":
-                 print("Tape accepted!") 
+             print("Tape accepted!") 
          else:
              print("else")
