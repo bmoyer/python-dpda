@@ -21,9 +21,6 @@ pop4.add_transition(accept5, character="!")
 
 start_state = State(state_type="Start", next_state=read1)
 
-# Give the start state the first "real state" as a parameter.
-start_state.add_transition(read1)
-
 my_pda = PDA(start_state)
 
 # Testing a^21 b^20, which is not in the language of this PDA
