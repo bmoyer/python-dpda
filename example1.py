@@ -1,4 +1,4 @@
-"""This is an example of building a PDA to detect contiguous substrings 
+"""This is an example of building a PDA to detect contiguous substrings
 of a's followed by the same number of b's, repeatedly."""
 from PDA import *
 from State import *
@@ -34,5 +34,8 @@ my_pda.start(tape=tape_word, stack=['!'])
 tape_word = "a"*20 + "b"*20 + "a"*12 + "b"*12 + "a"*192 + "b"*192 + "!"
 my_pda.start(tape=tape_word, stack=['!'])
 
-tape_word = "a"*100+ "b"*100 + "!"
+tape_word = "a"*100 + "b"*100 + "!"
+my_pda.start(tape=tape_word, stack=['!'])
+
+tape_word = "a"*42 + "b"*21 + "!"
 my_pda.start(tape=tape_word, stack=['!'])
