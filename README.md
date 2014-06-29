@@ -44,6 +44,7 @@ Creating a PDA and States:
     my_pda = PDA(start_state)
 
 Running a tape through the PDA to check language membership:
+
     word = "a"*42 + "b"*42
 
     # '!' will be our END symbol, so we append it to the end of the tape.
