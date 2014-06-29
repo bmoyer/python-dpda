@@ -1,6 +1,10 @@
 class State(object):
     def __init__(self, state_type, next_state=None):
         """If state_type='Start', then a next_state must be provided."""
+        if state_type not in ('Accept', 'Push', 'Pop', 'Read', 'Start'):
+            raise SystemExit(state_type + " is not a valid State type!")
+        if state_type == 'Start' and not next_state:
+            raise SystemExit("Start states must be provided a next_state!")
         self.state_type = state_type
         self.transitions = list()
         self.next_state = next_state
@@ -55,7 +59,6 @@ class State(object):
             elif self.state_type == "Accept":
                 print("Tape accepted!")
             else:
-                print("If this happened, call support at 1-800-555-5555")
-
+                pass
         except:
             print("Tape NOT accepted!")
