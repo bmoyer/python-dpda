@@ -31,26 +31,22 @@ class State(object):
                     return transition['next']
                 
     def action(self, tape, stack):
-         """print (self.state_type, )
-         print("SAW ",tape[0])
-         print("stack was ",stack)"""
+       try:
          if self.state_type == "Start":
             self.get_next_state().action(tape, stack)
          elif self.state_type == "Read":
-             print("READ STATE, TAPE WAS ",tape)
              self.get_next_state(character=tape[0]).action(tape[1:], stack)
          elif self.state_type == "Push":
-             print("stack was" ,stack)
              char = self.transitions[0]['char']
-             print("pushed", char)
              stack.append(char)
              self.get_next_state().action(tape, stack)
          elif self.state_type == "Pop":
-             print("stack was" ,stack)
              char = stack.pop()
-             print("popped", char)
              self.get_next_state(character=char).action(tape,stack)
          elif self.state_type == "Accept":
              print("Tape accepted!") 
          else:
-             print("else")
+             print("If this happened, call support at 1-800-555-5555")
+
+       except:
+        print("Tape NOT accepted!")
