@@ -38,27 +38,44 @@ class State(object):
                 if transition['char'] == character:
                     return transition['next']
 
-    def action(self, tape, stack):
+    def action(self, tape, stack, verbose=False):
         """If state_type is Read, Push, or Pop, the respective action is taken
         and the get_next_state() retrieves the next state in the PDA.  The
         action() function of the next state is then called.
         If state_type is Start, next state's action() function is called.
         If state_type is Accept, the state simply prints a message."""
+        if verbose:
+            print("TAPE: ", tape)
+            print("STACK: ", stack)
         try:
             if self.state_type == "Start":
-                self.get_next_state().action(tape, stack)
+                if verbose:
+                    print("START -> next_state")
+                self.get_next_state().action(tape, stack, verbose)
             elif self.state_type == "Read":
-                self.get_next_state(character=tape[0]).action(tape[1:], stack)
+                if verbose:
+                    print("READ " + tape[0] + "")
+                self.get_next_state(character=tape[0]).action(tape[1:], stack, verbose)
             elif self.state_type == "Push":
                 char = self.transitions[0]['char']
                 stack.append(char)
-                self.get_next_state().action(tape, stack)
+                if verbose:
+                    print("PUSH " + char + "")
+                self.get_next_state().action(tape, stack, verbose)
             elif self.state_type == "Pop":
                 char = stack.pop()
-                self.get_next_state(character=char).action(tape, stack)
+                if verbose:
+                    print("POP " + char + "")
+                self.get_next_state(character=char).action(tape, stack, verbose)
             elif self.state_type == "Accept":
                 print("Tape accepted!")
+                if verbose:
+                    print("FINAL TAPE: ", tape)
+                    print("FINAL STACK: ", stack)
             else:
                 pass
         except:
             print("Tape NOT accepted!")
+            if verbose:
+                print("FINAL TAPE: ", tape)
+                print("FINAL STACK: ", stack)
