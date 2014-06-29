@@ -6,7 +6,7 @@ Python Deterministic Push Down Automaton<br>
 This module allows a user to:<br>
     - Create a PDA object with a designated start state<br>
     - Create multiple State objects, of the types:<br>
-        * Read states
+Markup :        * Read states
         * Push states<br>
         * Pop states<br> 
         * Accept states<br>
@@ -14,9 +14,9 @@ This module allows a user to:<br>
     - Add transitions to each state, which determine the behavior of the automaton<br>
     - Start a PDA by feeding it a tape (list or string)<br> 
 <br>
-If the python-dpda crashes, it means that the tape word was not in the language expressed by your pushdown automaton.  This program is built to resemble a theoretical PDA, which is quite capable of crashing!
+The code in this README will assemble and test the following pushdown automaton.  We use '!' for the END symbol on both the tape and the stack.
 
-![alt tag](http://i.imgur.com/81mi5x1.png )
+![alt tag](http://i.imgur.com/jheP0Zl.png )
 
 Creating a PDA and States:
     
@@ -44,6 +44,7 @@ Creating a PDA and States:
     my_pda = PDA(start_state)
 
 Running a tape through the PDA to check language membership:
+
 
     word = "a"*42 + "b"*42
 
