@@ -1,22 +1,25 @@
-python-dpda
+Python Deterministic Pushdown Automaton
 ===========
 
 Python Deterministic Push Down Automaton<br>
 
 This module allows a user to:<br>
-    - Create a PDA object with a designated start state<br>
-    - Create multiple State objects, of the types:<br>
-Markup :        * Read states
-        * Push states<br>
-        * Pop states<br> 
-        * Accept states<br>
-        * Implicit Reject states<br>
-    - Add transitions to each state, which determine the behavior of the automaton<br>
-    - Start a PDA by feeding it a tape (list or string)<br> 
+    * Create a PDA object with a designated start state<br>
+    * Create multiple State objects, of the types:<br>
+     * Read states
+     * Push states<br>
+     * Pop states<br> 
+     * Accept states<br>
+     * Implicit Reject states<br>
+    * Add transitions to each state, which determine the behavior of the automaton<br>
+    * Start a PDA by feeding it a tape (list or string)<br> 
 <br>
 The code in this README will assemble and test the following pushdown automaton.  We use '!' for the END symbol on both the tape and the stack.
 
 ![alt tag](http://i.imgur.com/jheP0Zl.png )
+
+Usage
+===========
 
 Creating a PDA and States:
     
@@ -56,3 +59,7 @@ Running a tape through the PDA to check language membership:
 
     # Start the PDA by giving it a tape and stack as input.
     my_pda.start(tape=my_tape, stack=my_stack)
+
+Output
+==========
+The PDA will print whether the tape was accepted or rejected.  If the PDA constructor is given the parameter verbose=True, then the states will report via STDOUT whenever they perform any action.  Verbose mode is suggested for students trying to solidify their understanding of pushdown automata.
