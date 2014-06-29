@@ -86,3 +86,56 @@ Output:
 
 
     Tape NOT accepted!
+
+
+Verbose Output
+==========
+If we run the PDA with verbose=True, as in this example:
+
+
+    my_tape = "aabb!"
+    my_stack = ['!']
+    my_pda.start(tape=my_tape, stack=my_stack, verbose=True)
+
+
+We get a much more complete output, reporting the step-by-step behavior of our automaton!
+
+
+    TAPE:  aabb!
+    STACK:  ['!']
+    START -> next_state
+    TAPE:  aabb!
+    STACK:  ['!']
+    READ a
+    TAPE:  abb!
+    STACK:  ['!']
+    PUSH X
+    TAPE:  abb!
+    STACK:  ['!', 'X']
+    READ a
+    TAPE:  bb!
+    STACK:  ['!', 'X']
+    PUSH X
+    TAPE:  bb!
+    STACK:  ['!', 'X', 'X']
+    READ b
+    TAPE:  b!
+    STACK:  ['!', 'X', 'X']
+    POP X
+    TAPE:  b!
+    STACK:  ['!', 'X']
+    READ b
+    TAPE:  !
+    STACK:  ['!', 'X']
+    POP X
+    TAPE:  !
+    STACK:  ['!']
+    READ !
+    TAPE:  
+    STACK:  ['!']
+    POP !
+    TAPE:  
+    STACK:  []
+    Tape accepted!
+    FINAL TAPE:  
+    FINAL STACK:  []
