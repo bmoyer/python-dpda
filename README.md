@@ -10,7 +10,8 @@ This module has the following features:<br>
     * Add transitions to each state, which determine the behavior of the automaton<br>
     * Start a PDA by feeding it a tape (string) and a stack (list).<br> 
     * Print verbose output as the PDA proceeds through the input material.
-<br>
+<br><br>
+
 The code in this README will assemble and test the following pushdown automaton.  We use '!' for the END symbol on both the tape and the stack.
 
 ![alt tag](http://i.imgur.com/jheP0Zl.png )
